@@ -1,8 +1,8 @@
 # Common inputs for the vpn files
-HOSTSERVER="ec2-18-191-156-181.us-east-2.compute.amazonaws.com"
-HOSTCLIENT="ec2-18-222-149-106.us-east-2.compute.amazonaws.com"
-IPSERVER="172.31.44.189"
-IPCLIENT="172.31.41.131"
+HOSTSERVER="ec2-18-191-165-246.us-east-2.compute.amazonaws.com"
+HOSTCLIENT="ip-10-0-1-80.us-east-2.compute.internal"
+IPSERVER="18.191.165.246"
+IPCLIENT="18.222.121.15"
 NIC="eth0" # interface configured for vpn server
 COMMON_FILE="https://raw.githubusercontent.com/sgupt9999/common/master/common_fn" # Location of the common function
 LOG_FILE="/tmp/openvpn_install.log"

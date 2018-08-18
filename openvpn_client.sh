@@ -58,7 +58,7 @@ print_msg_done
 # create openVPN client config file
 cat > client.opvn <<EOF
 client
-dev tap0
+dev tun
 proto udp
 remote $IPSERVER 1194
 resolv-retry infinite
@@ -67,7 +67,6 @@ persist-key
 persist-tun
 comp-lzo
 verb 3
-remote-cert-tls server
 ca ca.crt
 cert client.crt
 key client.key

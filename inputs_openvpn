@@ -1,7 +1,7 @@
 # Common inputs for the vpn files
 HOSTSERVER="ec2-18-191-156-181.us-east-2.compute.amazonaws.com"
 HOSTCLIENT="ec2-18-222-149-106.us-east-2.compute.amazonaws.com"
-IPSERVER="172.31.156.181"
+IPSERVER="172.31.44.189"
 IPCLIENT="172.31.41.131"
 NIC="eth0" # interface configured for vpn server
 COMMON_FILE="https://raw.githubusercontent.com/sgupt9999/common/master/common_fn" # Location of the common function
@@ -28,3 +28,6 @@ VPN_C_L="Houston" # location
 VPN_C_O="CMEI" # organization
 VPN_C_OU="CLIENT" # organizational unit
 VPN_C_CN="$HOSTCLIENT" # common name
+
+COPY_CERTS_TO_TMP="yes" # copy client and root CA certs to server:/tmp so client can copy
+SUSER="ec2-user" # server user name to scp

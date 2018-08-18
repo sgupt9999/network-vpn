@@ -47,9 +47,8 @@ cd /etc/openvpn
 rm -rf client.*
 rm -rf ca.*
 
-openssl req -x509 -days 365 -newkey rsa:4096 -keyout ca.key -nodes -subj "/C=$CA_C/ST=$CA_ST/L=$CA_L/O=$CA_O" -set_serial 100 -out ca.crt
-openssl req -newkey rsa:2048 -keyout client.key -nodes -subj "/C=$VPN_C_C/ST=$VPN_C_ST/L=$VPN_C_L/O=$VPN_C_O/OU=$VPN_C_OU/CN=$VPN_C_CN" -out client.csr
-openssl x509 -req -days 365 -in client.csr -out client.crt -CA ca.crt -CAkey ca.key -set_serial 101
+scp $SUSER@$HOSTSERVER:/tmp/ca.crt .
+scp $SUSER@$HOSTSERVER:/tmp/client.* .
 
 chmod 0600 client.*
 chmod 0600 ca.*
@@ -64,10 +63,11 @@ proto udp
 remote $IPSERVER 1194
 resolv-retry infinite
 nobind
-presist-key
-presist-tun
+persist-key
+persist-tun
 comp-lzo
 verb 3
+remote-cert-tls server
 ca ca.crt
 cert client.crt
 key client.key
@@ -76,4 +76,4 @@ route-delay 2
 EOF
 
 
-openvpn --config client.opvn
+openvpn --config client.opvn &

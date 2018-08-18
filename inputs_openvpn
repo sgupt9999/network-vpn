@@ -1,0 +1,30 @@
+# Common inputs for the vpn files
+HOSTSERVER="ec2-18-191-156-181.us-east-2.compute.amazonaws.com"
+HOSTCLIENT="ec2-18-222-149-106.us-east-2.compute.amazonaws.com"
+IPSERVER="172.31.156.181"
+IPCLIENT="172.31.41.131"
+NIC="eth0" # interface configured for vpn server
+COMMON_FILE="https://raw.githubusercontent.com/sgupt9999/common/master/common_fn" # Location of the common function
+LOG_FILE="/tmp/openvpn_install.log"
+
+# Root CA information
+CA_C="US" # country
+CA_ST="TX" # state
+CA_L="Houston" # location
+CA_O="CertOrg" # organization
+
+# VPN Server certificate information
+VPN_S_C="US" # country
+VPN_S_ST="TX" # state
+VPN_S_L="Houston" # location
+VPN_S_O="CMEI" # organization
+VPN_S_OU="SERVER" # organizational unit
+VPN_S_CN="$HOSTSERVER" # common name
+
+# VPN Client certificate information
+VPN_C_C="US" # country
+VPN_C_ST="TX" # state
+VPN_C_L="Houston" # location
+VPN_C_O="CMEI" # organization
+VPN_C_OU="CLIENT" # organizational unit
+VPN_C_CN="$HOSTCLIENT" # common name
